@@ -1,0 +1,22 @@
+
+---
+
+## 🤝 2. Guide de contribution (`CONTRIBUTING.md`)
+
+```markdown
+# Guide de contribution
+
+Merci de contribuer à MonJeuCpp ! Voici les règles à suivre :
+
+## 🧭 Branches
+- `main` : version stable
+- `dev-code` : développement C++
+- `dev-design` : graphismes
+- `dev-animation` : animations
+- `dev-sound` : audio
+- `dev-levels` : conception de niveaux
+
+## 🔄 Workflow
+1. Crée une branche pour ta tâche :
+   ```bash
+   git checkout -b dev-code/ajout-collision
