@@ -1,41 +1,14 @@
-# Prerequisites
-*.d
+---
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+## 🔢 3. Système de versioning
 
-# Precompiled Headers
-*.gch
-*.pch
+Utilise [SemVer](https://semver.org/lang/fr/) : `MAJOR.MINOR.PATCH`
 
-# Linker files
-*.ilk
+- `1.0.0` → Première version stable
+- `1.1.0` → Ajout de fonctionnalités (ex: inventaire)
+- `1.1.1` → Corrections de bugs
 
-# Debugger Files
-*.pdb
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-# debug information files
-*.dwo
+Tague les versions :
+```bash
+git tag -a v1.0.0 -m "Version stable"
+git push origin v1.0.0
