@@ -1,0 +1,42 @@
+#include "../include/menu.hpp"
+
+Menu::Menu(float width, float height) {
+    font.loadFromFile("assets/arial.ttf");
+
+    options[0].setFont(font);
+    options[0].setString("Jouer");
+    options[0].setPosition(width / 2, height / 2 - 50);
+    options[0].setFillColor(sf::Color::Red);
+
+    options[1].setFont(font);
+    options[1].setString("Quitter");
+    options[1].setPosition(width / 2, height / 2 + 10);
+    options[1].setFillColor(sf::Color::White);
+
+    selectedIndex = 0;
+}
+
+void Menu::draw(sf::RenderWindow& window) {
+    for (int i = 0; i < 2; ++i)
+        window.draw(options[i]);
+}
+
+void Menu::moveUp() {
+    if (selectedIndex > 0) {
+        options[selectedIndex].setFillColor(sf::Color::White);
+        selectedIndex--;
+        options[selectedIndex].setFillColor(sf::Color::Red);
+    }
+}
+
+void Menu::moveDown() {
+    if (selectedIndex < 1) {
+        options[selectedIndex].setFillColor(sf::Color::White);
+        selectedIndex++;
+        options[selectedIndex].setFillColor(sf::Color::Red);
+    }
+}
+
+int Menu::getSelectedIndex() {
+    return selectedIndex;
+}

@@ -1,0 +1,26 @@
+#!/bin/bash
+set -e
+
+# 📦 Variables
+REPO_URL="git@github.com:tommyjou39/ton-projet.git"
+VERSION=$(date +"v%Y.%m.%d-%H%M")
+COMMIT_MSG="Auto-push: $VERSION"
+CHANGELOG_FILE="changelog_$VERSION.md"
+
+# 🧼 Nettoyage et build
+make clean && make
+
+# 📜 Génération du changelog
+echo "## Changelog $VERSION" > $CHANGELOG_FILE
+git log -1 --pretty=format:"- %s (%h)" >> $CHANGELOG_FILE
+
+# 🚀 Git operations
+git add .
+git commit -m "$COMMIT_MSG"
+git tag "$VERSION"
+git push origin main --tags
+
+# 📤 Publication (ex: Itch.io)
+butler push ./build tommyjou39/ton-jeu:demo --userversion "$VERSION"
+
+echo "✅ Push + tag + changelog + publication terminé !"

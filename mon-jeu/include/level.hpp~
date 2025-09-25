@@ -1,0 +1,13 @@
+#pragma once
+#include <SFML/Graphics.hpp>
+
+class Level {
+public:
+    Level();
+    void draw(sf::RenderWindow& window);
+    bool checkCollision(sf::FloatRect playerBounds);
+
+private:
+    sf::RectangleShape goal;
+};
+
